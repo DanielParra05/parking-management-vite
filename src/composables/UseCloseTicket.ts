@@ -1,6 +1,6 @@
 import ApiConsumer from "~/ApiConsumer";
 import ParkingTicket from "~/types/ParkingTicket";
-import { useMainStore } from "../stores/store";
+import { useMainStore } from "../stores/main";
 
 const prices: Map<string, number> = new Map<string, number>([
   ["CarHour", 1000],
@@ -19,8 +19,8 @@ function useCloseTicket(): (parkingTicket: ParkingTicket) => void {
     parkingTicket.charge = calculateFinalPrice(parkingTicket);
     ApiConsumer.updateParkingTicket(parkingTicket);
     parkingTicket.vehicleType === "Car"
-      ? store.commit("freeCarSpot", parkingTicket)
-      : store.commit("freeBikeSpot", parkingTicket);
+      ? store.freeCarSpot(parkingTicket)
+      : store.freeBikeSpot(parkingTicket)
   }
   return closeTicket;
 }

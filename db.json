@@ -1,0 +1,56 @@
+{
+  "vehicle-types": [
+    "Car",
+    "Motorbike"
+  ],
+  "parking-tickets": [
+    {
+      "vehicleType": "Car",
+      "plate": "GHH123",
+      "entryDate": "Thu Mar 17 2022 13:28:33 GMT-0500 (Colombia Standard Time)",
+      "id": 1
+    },
+    {
+      "plate": "DFG345",
+      "vehicleType": "Car",
+      "entryDate": "Thu Mar 17 2022 13:28:40 GMT-0500 (Colombia Standard Time)",
+      "id": 2
+    },
+    {
+      "plate": "IUM78R",
+      "vehicleType": "Motorbike",
+      "entryDate": "Thu Mar 17 2022 13:28:53 GMT-0500 (Colombia Standard Time)",
+      "id": 3
+    }
+  ],
+  "bike-spots": [
+    {
+      "plate": "IUM78R",
+      "vehicleType": "Motorbike",
+      "entryDate": "Thu Mar 17 2022 13:28:53 GMT-0500 (Colombia Standard Time)",
+      "id": 3
+    }
+  ],
+  "car-spots": [
+    {
+      "vehicleType": "Car",
+      "plate": "GHH123",
+      "entryDate": "Thu Mar 17 2022 13:28:33 GMT-0500 (Colombia Standard Time)",
+      "id": 1
+    },
+    {
+      "plate": "DFG345",
+      "vehicleType": "Car",
+      "entryDate": "Thu Mar 17 2022 13:28:40 GMT-0500 (Colombia Standard Time)",
+      "id": 2
+    }
+  ],
+  "login": [],
+  "users": [
+    {
+      "email": "josedanielparra05@outlook.com",
+      "password": "$2a$10$z3JpYxi9/4yzv3KwauH4BeKGxi8RhY9M2MJNGyowT2UdDcERj8f9S",
+      "id": 1
+    }
+  ]
+}

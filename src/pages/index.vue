@@ -1,22 +1,38 @@
 <template>
-  <div class="row">
-    <div class="column col-3 q-mx-auto q-mt-lg">
-      <span class="text-center text-subtitle2 q-my-sm">
-        Count:
-        <span data-id="counter">{{ counter }}</span>
-      </span>
-      <q-btn data-id="add" @click="add">+</q-btn>
+  <q-page class="q-pa-md">
+    <div class="row justify-center items-start">
+      <q-btn
+        color="secondary"
+        label="New ticket"
+        size="lg"
+        @click="goToForm()"
+      />
     </div>
-  </div>
+    <div class="flex-center" style="padding: 1.5%">
+      <tickets-table-component
+        :tableTitle="`Tickets Summary 🎟️`"
+        :parkingTicketsList="parkingTicketsList"
+      ></tickets-table-component>
+    </div>
+  </q-page>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+import TicketsTableComponent from "~/components/TicketsTableComponent.vue";
+import ApiConsumer from "~/ApiConsumer";
+import ParkingTicket from "~/types/ParkingTicket";
 
-const counter = ref(0);
+const parkingTicketsList = ref<Array<ParkingTicket>>(
+  new Array<ParkingTicket>()
+);
 
-function add() {
-  counter.value += 1;
+ApiConsumer.getParkingTickets().then((response) => {
+  parkingTicketsList.value = response;
+});
+
+function goToForm() {
+  // $router.push({ name: "parking-form" });
 }
 </script>
 

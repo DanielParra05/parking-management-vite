@@ -41,7 +41,7 @@ export const useMainStore = defineStore('mainStore', {
         },
         fetchCarSpots() {
             ApiConsumer.getCarSpots().then((response) =>
-                this.bikeSpots = response
+                this.carSpots = response
             );
         },
         fetchBikeSpots() {

@@ -59,6 +59,7 @@
 
 <script lang="ts" setup>
 import { PropType, ref } from "vue";
+import useCloseTicket from "~/composables/UseCloseTicket";
 import ParkingTicket from "../types/ParkingTicket";
 import DialogComponent from "./DialogComponent.vue";
 
@@ -98,12 +99,14 @@ const tableColumns = [
   { name: "charge", label: "Charged 💵", field: "charge", align: "left" },
   { name: "actions", label: "Actions", align: "center", field: "id" },
 ];
+const closeTicket = useCloseTicket();
 
 function generateFinalTicket(id: string) {
   const parkingTicket: ParkingTicket | undefined = getByIdFromTickets(
     parseInt(id)
   );
   if (parkingTicket) {
+    closeTicket(parkingTicket);
     showDialog(
       `The ticket with plate ${
         parkingTicket.plate

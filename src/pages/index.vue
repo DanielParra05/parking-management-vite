@@ -22,6 +22,9 @@ import { ref } from "vue";
 import TicketsTableComponent from "~/components/TicketsTableComponent.vue";
 import ApiConsumer from "~/ApiConsumer";
 import ParkingTicket from "~/types/ParkingTicket";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const parkingTicketsList = ref<Array<ParkingTicket>>(
   new Array<ParkingTicket>()
@@ -32,7 +35,7 @@ ApiConsumer.getParkingTickets().then((response) => {
 });
 
 function goToForm() {
-  // $router.push({ name: "parking-form" });
+  router.push({ name: "ParkingForm" });
 }
 </script>
 

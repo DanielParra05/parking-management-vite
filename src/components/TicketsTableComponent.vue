@@ -62,6 +62,7 @@ import { PropType, ref } from "vue";
 import useCloseTicket from "~/composables/UseCloseTicket";
 import ParkingTicket from "../types/ParkingTicket";
 import DialogComponent from "./DialogComponent.vue";
+import { QTableProps } from "quasar";
 
 const props = defineProps({
   parkingTicketsList: Array as PropType<Array<ParkingTicket>>,
@@ -71,7 +72,7 @@ const dialogVisible = ref<boolean>(false);
 const dialogBodyMessage = ref<string>("");
 const dialogType = ref<string>("");
 const dialogTitle = ref<string>("");
-const tableColumns = [
+const tableColumns: QTableProps["columns"] = [
   {
     name: "vehicleType",
     label: "Vehicle Type",

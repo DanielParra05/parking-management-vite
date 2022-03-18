@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import TicketsTableComponent from "~/components/TicketsTableComponent.vue";
 import ApiConsumer from "~/ApiConsumer";
 import ParkingTicket from "~/types/ParkingTicket";
 import { useRouter } from "vue-router";

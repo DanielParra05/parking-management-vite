@@ -56,13 +56,10 @@
 import { defineComponent } from "vue";
 import ApiConsumer from "~/ApiConsumer";
 import ParkingTicket from "~/types/ParkingTicket";
-import DialogComponent from "~/components/DialogComponent.vue";
 import { useMainStore } from "~/stores/main";
 
 export default defineComponent({
   name: "ParkingForm",
-
-  components: { DialogComponent },
   setup() {
     const mainStore = useMainStore();
 

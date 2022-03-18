@@ -65,7 +65,6 @@ import { ref } from "vue";
 import ParkingTicket from "../types/ParkingTicket";
 import { useMainStore } from "~/stores/main";
 import useCloseTicket from "~/composables/UseCloseTicket";
-import DialogComponent from "../components/DialogComponent.vue";
 
 const store = useMainStore();
 const closeTicket = useCloseTicket();

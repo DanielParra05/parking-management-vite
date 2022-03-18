@@ -61,7 +61,6 @@
 import { PropType, ref } from "vue";
 import useCloseTicket from "~/composables/UseCloseTicket";
 import ParkingTicket from "../types/ParkingTicket";
-import DialogComponent from "./DialogComponent.vue";
 import { QTableProps } from "quasar";
 
 const props = defineProps({

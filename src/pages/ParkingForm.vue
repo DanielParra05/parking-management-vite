@@ -136,3 +136,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<route>
+{
+  meta: {
+    requiresAuth: true
+  }
+}
+</route>

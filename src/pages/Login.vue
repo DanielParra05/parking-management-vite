@@ -77,7 +77,7 @@ export default defineComponent({
       ApiConsumer.login(this.email, this.password)
         .then((response) => {
           if (response.accessToken) {
-            this.store.fillAuthenticationToken(response.accessToken);
+            this.saveToken(response.accessToken);
             this.router.push({ name: "index" });
           }
         })
@@ -88,6 +88,18 @@ export default defineComponent({
           });
         });
     },
+    saveToken(token: string) {
+      localStorage.setItem("authToken", token);
+    },
   },
 });
 </script>
+
+<route>
+{
+  meta: {
+    layout: "no-toolbar",
+    requiresAuth: false
+  }
+}
+</route>

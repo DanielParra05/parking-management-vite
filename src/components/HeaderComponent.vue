@@ -48,7 +48,7 @@ export default defineComponent({
   },
   methods: {
     logout() {
-      //this.$store.commit("removeToken");
+      localStorage.removeItem("authToken");
       this.redirectToWithVueRouter("login");
     },
     redirectToWithVueRouter(route: string) {

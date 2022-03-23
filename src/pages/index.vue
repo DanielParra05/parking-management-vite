@@ -40,8 +40,11 @@ function goToForm() {
 
 <style lang="postcss"></style>
 
-<route lang="JSON5">
+<route>
 {
-  name: "index"
+  name: "index",
+   meta: {
+    requiresAuth: true
+  }
 }
 </route>

@@ -33,12 +33,6 @@ export const useMainStore = defineStore('mainStore', {
             this.carSpots.splice(index, 1);
             ApiConsumer.removeCarSpot(car);
         },
-        fillAuthenticationToken(token: string) {
-            this.authenticationToken = token;
-        },
-        removeToken() {
-            this.authenticationToken = "";
-        },
         fetchCarSpots() {
             ApiConsumer.getCarSpots().then((response) =>
                 this.carSpots = response
@@ -54,7 +48,6 @@ export const useMainStore = defineStore('mainStore', {
     getters: {
         getAppName: (state) => state.appName,
         getCarSpots: (state) => state.carSpots,
-        getBikeSpots: (state) => state.bikeSpots,
-        isAuthenticated: (state) => state.authenticationToken !== "",
+        getBikeSpots: (state) => state.bikeSpots
     }
 })

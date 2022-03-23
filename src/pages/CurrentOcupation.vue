@@ -92,3 +92,11 @@ function handleTicketClick(parkingTicket: ParkingTicket) {
   font-weight: bold;
 }
 </style>
+
+<route>
+{
+  meta: {
+    requiresAuth: true
+  }
+}
+</route>

@@ -1,5 +1,5 @@
 <template>
-  <q-page class="window-height window-width row justify-center items-center">
+  <div class="window-height window-width row justify-center items-center">
     <div class="column q-pa-lg">
       <div class="row">
         <q-card square class="shadow-24" style="width: 350px; height: 400px">
@@ -9,13 +9,14 @@
             </h4>
             <h4 class="text-h5 text-white q-my-md text-center">🚗🚧🛵</h4>
           </q-card-section>
-          <q-form @submit="login" class="q-px-sm q-pt-lg">
+          <q-form @submit="login()" class="q-px-sm q-pt-lg" data-test="loginForm">
             <q-card-section>
               <q-input
                 square
                 clearable
                 v-model="email"
                 label="Email"
+                data-test="emailInput"
                 :rules="[(val:string) => !!val || 'Field is required']"
               >
                 <template v-slot:prepend>
@@ -28,6 +29,7 @@
                 clearable
                 v-model="password"
                 label="Password"
+                data-test="passInput"
                 :rules="[(val:string) => !!val || 'Field is required']"
               >
                 <template v-slot:prepend>
@@ -50,30 +52,29 @@
         </q-card>
       </div>
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import ApiConsumer from "../ApiConsumer";
 import { Notify } from "quasar";
-import { useMainStore } from "~/stores/main";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const store = useMainStore();
     const router = useRouter();
-    return { store, router };
+    return { router };
   },
   data() {
     return {
-      email: "josedanielparra05@outlook.com",
-      password: "123456",
+      email: "",
+      password: "",
     };
   },
   methods: {
     login() {
+      console.log("CALL");
       ApiConsumer.login(this.email, this.password)
         .then((response) => {
           if (response.accessToken) {

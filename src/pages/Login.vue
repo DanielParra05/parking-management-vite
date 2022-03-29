@@ -74,7 +74,6 @@ export default defineComponent({
   },
   methods: {
     login() {
-      console.log("CALL");
       ApiConsumer.login(this.email, this.password)
         .then((response) => {
           if (response.accessToken) {

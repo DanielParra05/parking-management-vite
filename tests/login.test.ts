@@ -18,23 +18,26 @@ const wrapperFactory = () => mount(Login, {
   },
 })
 
-test('mount component', () => {
-  expect(Login).toBeTruthy();
+describe('Login component', () => {
+  test('mount component', () => {
+    expect(Login).toBeTruthy();
+  })
 
-  //const wrapper = wrapperFactory();
-  // const count = wrapper.get('[data-id="counter"]')
+  test('Try login', async () => {
+    const wrapper = wrapperFactory();
+    const loginMethod = vi.spyOn(wrapper.vm, "login");
+    await wrapper.get('[data-test="emailInput"]').setValue("josedanielparra05@gmail.com");
+    await wrapper.get('[data-test="passInput"]').setValue("123456");
+    await wrapper.get('[data-test="loginForm"]').trigger('submit');
 
-  // expect(count.text()).toContain('0')
-  // console.log(wrapper.html());
-})
+    expect(loginMethod).toHaveBeenCalledOnce();
+  })
 
+  test('Try login with missing password', async () => {
+    const wrapper = wrapperFactory();
+    await wrapper.get('[data-test="emailInput"]').setValue("josedanielparra05@gmail.com");
+    await wrapper.get('[data-test="loginForm"]').trigger('submit');
 
-test('mount component', async () => {
-  const wrapper = wrapperFactory();
-  const loginMethod = vi.spyOn(wrapper.vm, "login");
-  await wrapper.get('[data-test="emailInput"]').setValue("josedanielparra05@gmail.com");
-  await wrapper.get('[data-test="passInput"]').setValue("123456");
-  await wrapper.get('[data-test="loginForm"]').trigger('submit');
-  console.log(loginMethod);
-  expect(loginMethod).toHaveBeenCalledOnce();
+    expect(wrapper.get('[data-test="loginForm"]').text()).toContain("Field is required");
+  })
 })
